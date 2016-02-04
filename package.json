@@ -21,7 +21,7 @@
     "es6-promisify": "3.0.0"
   },
   "peerDependencies": {
-    "react-native": ">=0.5"
+    "react-native": ">=0.17"
   },
   "author": "Yorkie Liu <yorkiefixer@gmail.com>",
   "contributors": [
