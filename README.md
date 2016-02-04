@@ -171,6 +171,7 @@ Share a message to timeline (朋友圈).
 - {Object} `data` contain the message to send
     - {String} `thumbImage` Thumb image of the message, which can be a uri or a resource id.
     - {String} `type` Type of this message. Can be {news|text|image|video|audio|file}
+    - {String} `title` Title of this message.
     - {String} `webpageUrl` Required if type equals `news`. The webpage link to share.
     - {String} `imageUrl` Provide a remote image if type equals `image`.
     - {String} `videoUrl` Provide a remote video if type equals `video`.
