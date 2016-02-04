@@ -244,7 +244,7 @@ RCT_EXPORT_METHOD(sendErrorUserCancelResponse:(NSString *)message
 
         if (resp.errCode == WXSuccess)
         {
-  	        [body addEntriesFromDictionary:@{@"appid":self.appID, @"code" :r.code}];
+  	        [body addEntriesFromDictionary:@{@"code" :r.code}];
 	        [self.bridge.eventDispatcher sendDeviceEventWithName:@"WeChat_Resp" body:body];
 	    }
 	    else {
