@@ -130,18 +130,6 @@ RCT_EXPORT_METHOD(sendErrorUserCancelResponse:(NSString *)message
     callback(@[[WXApi sendResp:resp] ? [NSNull null] : INVOKE_FAILED]);
 }
 
-RCT_EXPORT_METHOD(shareToTimeline:(NSDictionary *)data
-                     :(RCTResponseSenderBlock)callback)
-{
-     [self shareToWeixinWithData:data scene:WXSceneTimeline callback:callback];
-}
-
-    RCT_EXPORT_METHOD(shareToSession:(NSDictionary *)data
-                     :(RCTResponseSenderBlock)callback)
-{
-      [self shareToWeixinWithData:data scene:WXSceneSession callback:callback];
-}
-
     - (void)shareToWeixinWithData:(NSDictionary *)aData thumbImage:(UIImage *)aThumbImage scene:(int)aScene callBack:(RCTResponseSenderBlock)callback
     {
       SendMessageToWXReq* req = [SendMessageToWXReq new];
@@ -210,7 +198,7 @@ RCT_EXPORT_METHOD(shareToTimeline:(NSDictionary *)data
 }
 
 
-        +- (void)shareToWeixinWithData:(NSDictionary *)aData scene:(int)aScene callback:(RCTResponseSenderBlock)aCallBack
+        - (void)shareToWeixinWithData:(NSDictionary *)aData scene:(int)aScene callback:(RCTResponseSenderBlock)aCallBack
     {
      NSString *imageUrl = aData[@"thumbImage"];
    if (imageUrl.length && _bridge.imageLoader) {
@@ -262,6 +250,17 @@ RCT_EXPORT_METHOD(shareToTimeline:(NSDictionary *)data
   	        [self.bridge.eventDispatcher sendDeviceEventWithName:@"WeChat_Resp" body:body];
 	    }
 	}
+}
+RCT_EXPORT_METHOD(shareToTimeline:(NSDictionary *)data
+    :(RCTResponseSenderBlock)callback)
+{
+[self shareToWeixinWithData:data scene:WXSceneTimeline callback:callback];
+}
+
+RCT_EXPORT_METHOD(shareToSession:(NSDictionary *)data
+    :(RCTResponseSenderBlock)callback)
+{
+[self shareToWeixinWithData:data scene:WXSceneSession callback:callback];
 }
 
 
