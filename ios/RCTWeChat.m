@@ -202,6 +202,7 @@ RCT_EXPORT_METHOD(sendErrorUserCancelResponse:(NSString *)message
     {
      NSString *imageUrl = aData[@"thumbImage"];
      NSString *title = aData[@"title"];
+    NSString *description = aData[]@"description"];
    if (imageUrl.length && _bridge.imageLoader) {
           [_bridge.imageLoader loadImageWithTag:imageUrl size:CGSizeMake(100, 100) scale:1 resizeMode:UIViewContentModeScaleToFill progressBlock:nil completionBlock:^(NSError *error, UIImage *image) {
              [self shareToWeixinWithData:aData thumbImage:image scene:aScene callBack:aCallBack];
